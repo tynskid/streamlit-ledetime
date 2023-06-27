@@ -22,7 +22,7 @@ TENSORFLOW_SUPPORTED ?= $(shell python3 scripts/should_install_tensorflow.py)
 INSTALL_TENSORFLOW ?= $(shell python3 scripts/should_install_tensorflow.py)
 USE_CONSTRAINT_FILE ?= false
 PYTHON_VERSION := $(shell python3 --version | cut -d " " -f 2 | cut -d "." -f 1-2)
-GITHUB_REPOSITORY ?= streamlit/streamlit
+GITHUB_REPOSITORY ?= tynskid/streamlit-ledetime
 CONSTRAINTS_BRANCH ?= constraints-develop
 CONSTRAINTS_URL ?= https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/${CONSTRAINTS_BRANCH}/constraints-${PYTHON_VERSION}.txt
 
