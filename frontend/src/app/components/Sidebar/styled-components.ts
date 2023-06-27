@@ -349,3 +349,17 @@ export const StyledResizeHandle = styled.div(({ theme }) => ({
     backgroundImage: `linear-gradient(to right, transparent 20%, ${theme.colors.fadedText20} 28%, transparent 36%)`,
   },
 }))
+
+export const StyledSidebarHeader = styled.div`
+    font-family: Roboto, Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    padding: 3px 5px 16px 16px;
+    font-size: 16px;
+    color: white;
+    background-color: rgba(255, 255, 255, 0.15);
+    border-radius: 9px;
+    margin: 10px;
+    text-transform: uppercase;
+    width: 90%;
+`
+

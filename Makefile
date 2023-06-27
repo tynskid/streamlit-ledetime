@@ -18,10 +18,10 @@ SHELL=/bin/bash
 
 INSTALL_DEV_REQS ?= true
 INSTALL_TEST_REQS ?= true
-TENSORFLOW_SUPPORTED ?= $(shell python scripts/should_install_tensorflow.py)
-INSTALL_TENSORFLOW ?= $(shell python scripts/should_install_tensorflow.py)
+TENSORFLOW_SUPPORTED ?= $(shell python3 scripts/should_install_tensorflow.py)
+INSTALL_TENSORFLOW ?= $(shell python3 scripts/should_install_tensorflow.py)
 USE_CONSTRAINT_FILE ?= true
-PYTHON_VERSION := $(shell python --version | cut -d " " -f 2 | cut -d "." -f 1-2)
+PYTHON_VERSION := $(shell python3 --version | cut -d " " -f 2 | cut -d "." -f 1-2)
 GITHUB_REPOSITORY ?= streamlit/streamlit
 CONSTRAINTS_BRANCH ?= constraints-develop
 CONSTRAINTS_URL ?= https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/${CONSTRAINTS_BRANCH}/constraints-${PYTHON_VERSION}.txt
@@ -75,7 +75,7 @@ frontend: react-build
 .PHONY: install
 # Install Streamlit into your Python environment.
 install:
-	cd lib ; python setup.py install
+	cd lib ; python3 setup.py install
 
 .PHONY: develop
 # Install Streamlit as links in your Python environment, pointing to local workspace.
@@ -89,8 +89,8 @@ python-init-all:
 
 .PHONY: python-init-dev-only
 # Install Streamlit and dev requirements
-python-init-dev-only:
-	INSTALL_DEV_REQS=true INSTALL_TEST_REQS=false make python-init
+#python-init-dev-only:
+#	INSTALL_DEV_REQS=true INSTALL_TEST_REQS=false make python-init
 
 .PHONY: python-init-test-only
 # Install Streamlit and test requirements
@@ -100,7 +100,7 @@ python-init-test-only: lib/test-requirements.txt
 .PHONY: python-init
 python-init:
 	pip_args=("install" "--editable" "lib[snowflake]");\
-	if [ "${USE_CONSTRAINT_FILE}" = "true" ] ; then\
+	if [ "${USE_CONSTRAINT_FILE}" = "false" ] ; then\
 		pip_args+=(--constraint "${CONSTRAINTS_URL}"); \
 	fi;\
 	if [ "${INSTALL_DEV_REQS}" = "true" ] ; then\
@@ -277,9 +277,9 @@ protobuf: check-protoc
 react-init:
 	cd frontend/ ; yarn install --frozen-lockfile
 
-.PHONY: react-build
+#.PHONY: react-build
 react-build:
-	cd frontend/ ; yarn run build
+	cd frontend/ ; yarn run buildFast
 	rsync -av --delete --delete-excluded --exclude=reports \
 		frontend/build/ lib/streamlit/static/
 

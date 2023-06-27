@@ -49,9 +49,9 @@ module.exports = {
     configure: webpackConfig => {
       webpackConfig.resolve.mainFields = ["module", "main"]
       // Webpack 5 requires polyfills. We don't need them, so resolve to an empty module
-      webpackConfig.resolve.fallback ||= {}
-      webpackConfig.resolve.fallback.tty = false
-      webpackConfig.resolve.fallback.os = false
+     // webpackConfig.resolve.fallback ||= {}
+     // webpackConfig.resolve.fallback.tty = false
+     // webpackConfig.resolve.fallback.os = false
 
       // Apache Arrow uses .mjs
       webpackConfig.module.rules.push({

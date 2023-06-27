@@ -704,4 +704,365 @@ export const globalStyles = (theme: EmotionTheme): any => css`
     background: ${theme.colors.fadedText40};
     border-radius: 100px;
   }
+
+    header[data-testid="stHeader"] {
+        -webkit-text-size-adjust: 100%;
+    font-feature-settings: normal;
+    tab-size: 4;
+    -webkit-font-smoothing: antialiased;
+    color: rgba(0, 0, 0, 0.87);
+    font-size: 0.875rem;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-weight: 400;
+    line-height: 1.43;
+    letter-spacing: 0.01071em;
+    border: 0 solid #e5e7eb;
+    box-sizing: inherit;
+    grid-area: top / top / top / top;
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    background-color: white;
+    box-shadow: rgba(133, 133, 133, 0.43) 0px 1px 11px 0px;
+    }
+   
+    button[kind="secondaryFormSubmit"],button[kind="secondary"] {
+        -webkit-text-size-adjust: 100%;
+    tab-size: 4;
+    font: inherit;
+    position: relative;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+    outline: 0px;
+    border: 0px;
+    margin: 0px;
+    cursor: pointer;
+    user-select: none;
+    vertical-align: middle;
+    font-family: Roboto, Helvetica, Arial, sans-serif;
+    min-width: 64px;
+    text-transform: unset;
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: 0px;
+    line-height: 18px;
+    padding: 14px 16px;
+    transition: all 0.3s ease 0s;
+    opacity: 1;
+    color: rgb(255, 255, 255) !important;
+    -webkit-appearance: button;
+    background-image: none;
+    text-decoration: none;
+    background-color: #8C00FF !important;
+    }
+
+    input {
+    background-color: rgb(240, 242, 246) !important;
+    }
+    div[data-baseweb="select"] > div{
+    background-color: rgb(240, 242, 246) !important;
+    }
+
+    section[data-testid="stSidebar"] {
+    -webkit-text-size-adjust: 100%;
+    font-feature-settings: normal;
+    tab-size: 4;
+    -webkit-font-smoothing: antialiased;
+    color: rgba(0, 0, 0, 0.87);
+    font-size: 0.875rem;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-weight: 400;
+    line-height: 1.43;
+    letter-spacing: 0.01071em;
+    border: 0 solid #e5e7eb;
+    box-sizing: inherit;
+    //background: linear-gradient(312.66deg, rgb(176, 144, 255) 0%, rgb(38, 140, 255) 100%);
+    background-image: linear-gradient(
+  330deg,
+  hsl(6deg 82% 74%) 1%,
+  hsl(1deg 72% 74%) 4%,
+  hsl(354deg 63% 72%) 6%,
+  hsl(348deg 56% 71%) 9%,
+  hsl(340deg 49% 69%) 11%,
+  hsl(331deg 43% 67%) 15%,
+  hsl(321deg 37% 65%) 18%,
+  hsl(308deg 31% 63%) 23%,
+  hsl(293deg 31% 63%) 28%,
+  hsl(280deg 35% 63%) 34%,
+  hsl(269deg 40% 64%) 41%,
+  hsl(260deg 45% 65%) 49%,
+  hsl(252deg 50% 66%) 59%,
+  hsl(245deg 55% 66%) 70%,
+  hsl(238deg 62% 66%) 83%,
+  hsl(232deg 69% 64%) 100%
+);
+    box-shadow: rgba(0, 0, 0, 0.17) 1px 2px 4px 0px;
+    height: 100%;
+    width: 215px;
+    transition: width 0.75s ease-in-out 0s;
+    }
+    input.st-df {
+    -webkit-text-size-adjust: 100%;
+    font-feature-settings: normal;
+    tab-size: 4;
+    -webkit-font-smoothing: antialiased;
+    color: rgba(0, 0, 0, 0.87);
+    font-size: 0.875rem;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-weight: 400;
+    line-height: 1.43;
+    letter-spacing: 0.01071em;
+    -webkit-box-align: center;
+    align-items: center;
+    border-radius: 16px;
+    cursor: default;
+    display: flex;
+    flex-wrap: wrap;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    min-height: 38px;
+    position: relative;
+    transition: all 100ms ease 0s;
+    box-sizing: border-box;
+    background: rgba(228, 228, 228, 0.35);
+    border: none;
+    padding: 16px;
+    outline: 0px !important;
+    }
+    iframe:nth-child(2){
+    padding-right: 42px;
+    height:500px !important;
+    }
+
+
+    div[data-testid="stForm"]{
+    border:0px;
+    }
+    .stAlert {
+    padding-right:40px;
+    }
+    [data-testid="stVerticalBlock"] > [style*="flex-direction: column;"] > [data-testid="stVerticalBlock"] {
+    -webkit-text-size-adjust: 100%;
+    font-feature-settings: normal;
+    tab-size: 4;
+    -webkit-font-smoothing: antialiased;
+    color: rgba(0, 0, 0, 0.87);
+    font-size: 0.875rem;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-weight: 400;
+    line-height: 1.43;
+    letter-spacing: 0.01071em;
+    border: 0 solid #e5e7eb;
+    box-sizing: inherit;
+    border-radius: 24px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: rgb(227, 230, 236) 0px 30px 40px 0px;
+    overflow: hidden;
+    padding-right: 20px;
+    padding-left: 20px;
+    padding-top:20px;
+    padding-bottom:20px;
+    }
+    .stTextInput,.stSelectbox,.stTextArea {
+    padding-right:40px;
+    }
+    #root > div:nth-child(1) > div.withScreencast > div > div > div > section.main.css-uf99v8.egzxvld5 > div.block-container.css-z5fcl4.egzxvld4 > div:nth-child(1) > div > div:nth-child(7) > div > div:nth-child(3) > div > div > p:nth-child(3) {
+    padding-right:40px;
+    }
+
+.pitch_author_container{
+    width: 75%;
+}
+.row {
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+
+
+.pitch_button {
+    float: left;
+    width: 20%;
+        -webkit-text-size-adjust: 100%;
+    tab-size: 4;
+    font: inherit;
+    position: relative;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+    outline: 0px;
+    border: 0px;
+    margin: 0px;
+    cursor: pointer;
+    user-select: none;
+    vertical-align: middle;
+    font-family: Roboto, Helvetica, Arial, sans-serif;
+    min-width: 64px;
+    text-transform: unset;
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: 0px;
+    line-height: 10px;
+    padding: 9px 11px;
+    transition: all 0.3s ease 0s;
+    opacity: 1;
+    color: rgb(255, 255, 255) !important;
+    -webkit-appearance: button;
+    background-image: none;
+    text-decoration: none;
+    background-color: rgb(43, 76, 255) !important;
+}
+.pitch_button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top:10px;
+  background-color: #8e24aa;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  line-height: 1; /* Add this line to reset line height */
+}
+
+.pitch_button:hover {
+  background-color: #FFFFFF;
+  color: #000000;
+  text-decoration: none;
+}
+
+.pitch_button a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.block-container {
+    padding-top:0px;
+}
+
+
+.st-vertically-centered {
+            display: flex;
+            font-size:16px;
+        }
+.author {
+    float: left;
+    width: 30%;
+    margin-left:20px;
+
+}
+
+.article {
+    float: left;
+    width: 40%;
+    text-align: left; /* Changed to left */
+}
+
+/* Clear the float after each row */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+.css-5rimss.e16nr0p34{
+    padding-right:40px;
+}
+.extra_info_button {
+  display: inline-block;
+  margin-bottom:10px;
+  margin-right: 10px; /* optional: add some space between the buttons */
+}
+
+    div[data-testid="stSidebarNav"] li div {
+        width: 300px;
+        
+        border-radius: 0.5rem;
+    }
+ 
+div[data-testid="stSidebarNav"] li div a:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  border-radius: 10px;
+}
+
+.stSlider{    
+max-width: 90% !important;
+
+}
+
+
+
+    div[data-testid="stSidebarNav"] ul{
+    padding-bottom:500px;
+    padding-top:130px;
+    overflow:visible;
+    }
+
+    div[data-testid="stSidebarNav"] div{
+    overflow:visible;
+    padding-bottom:2px;
+    }
+
+    div[data-testid="stSidebarNav"] li div::focus-visible {
+        background-color: rgba(151, 166, 195, 0.15);
+
+    }
+
+
+    div[data-testid="stSidebarNav"] li div a span {
+        color:#000000;
+    }
+
+        div[data-testid="stSidebarNav"] li div a span {
+        color:rgba(255, 255, 255, 0.90);
+    }
+
+
+
+
+
+#root > div:nth-child(1) > div.withScreencast > div > div > header{
+    display:none;
+}
+
+
+
+
+
+    div[data-testid="stSidebarNav"] ul{
+    padding-bottom:600px;
+    padding-top:130px;
+    overflow:visible;
+    }
+
+    div[data-testid="stSidebarNav"] div{
+    overflow:visible;
+    padding-bottom:2px;
+    }
+
+    div[data-testid="stSidebarNav"] li div::focus-visible {
+        background-color: rgba(151, 166, 195, 0.15);
+
+    }
+
+
+    div[data-testid="stSidebarNav"] li div a span {
+        color:#000000;
+    }
+
+        div[data-testid="stSidebarNav"] li div a span {
+        color:rgba(255, 255, 255, 0.90);
+    }
+
+
+
 `

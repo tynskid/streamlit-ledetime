@@ -1,22 +1,4 @@
-/**
- * Copyright (c) Streamlit Inc. (2018-2022) Snowflake Inc. (2022)
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 import React, { ReactElement, useCallback, useRef, useState } from "react"
-// We import react-device-detect in this way so that tests can mock its
-// isMobile field sanely.
 import * as reactDeviceDetect from "react-device-detect"
 import { ExpandMore, ExpandLess } from "@emotion-icons/material-outlined"
 
@@ -32,6 +14,7 @@ import {
   StyledSidebarLinkText,
   StyledSidebarNavLinkContainer,
   StyledSidebarNavSeparatorContainer,
+  StyledSidebarHeader,
 } from "./styled-components"
 
 export interface Props {
@@ -45,7 +28,24 @@ export interface Props {
   pageLinkBaseUrl: string
 }
 
-/** Displays a list of navigable app page links for multi-page apps. */
+const headerIndices = [1, 3, 6, 9]
+
+const headerText = (index: number): string => {
+  switch (index) {
+    case 1:
+      return "Discover Targets"
+    case 3:
+      return "Research Tools "
+    case 6:
+      return "Build Pitches"
+    case 9:
+      return "Administration"
+    default:
+      return ""
+  }
+}
+
+
 const SidebarNav = ({
   endpoints,
   appPages,
@@ -94,40 +94,20 @@ const SidebarNav = ({
         onMouseOut={onMouseOut}
       >
         {appPages.map((page: IAppPage, pageIndex: number) => {
-          const pageUrl = endpoints.buildAppPageURL(
-            pageLinkBaseUrl,
-            page,
-            pageIndex
-          )
-
-          const pageName = page.pageName as string
-          const tooltipContent = pageName.replace(/_/g, " ")
-          const isActive = page.pageScriptHash === currentPageScriptHash
-
-          return (
-            <li key={pageName}>
-              <StyledSidebarNavLinkContainer>
-                <StyledSidebarNavLink
-                  isActive={isActive}
-                  href={pageUrl}
-                  onClick={e => {
-                    e.preventDefault()
-                    onPageChange(page.pageScriptHash as string)
-                    if (reactDeviceDetect.isMobile) {
-                      collapseSidebar()
-                    }
-                  }}
-                >
-                  {page.icon && page.icon.length && (
-                    <EmojiIcon size="lg">{page.icon}</EmojiIcon>
-                  )}
-                  <StyledSidebarLinkText isActive={isActive}>
-                    {tooltipContent}
-                  </StyledSidebarLinkText>
-                </StyledSidebarNavLink>
-              </StyledSidebarNavLinkContainer>
-            </li>
-          )
+          if (headerIndices.includes(pageIndex)) {
+            return (
+              <React.Fragment key={`header-${pageIndex}`}>
+                <StyledSidebarHeader>
+                  {headerText(pageIndex)}
+                </StyledSidebarHeader>
+                {renderNavItem(page, pageIndex, endpoints, pageLinkBaseUrl, currentPageScriptHash, onPageChange, collapseSidebar)}
+              </React.Fragment>
+            )
+          } else {
+            return <React.Fragment key={`navitem-${pageIndex}`}>
+              {renderNavItem(page, pageIndex, endpoints, pageLinkBaseUrl, currentPageScriptHash, onPageChange, collapseSidebar)}
+            </React.Fragment>
+          }
         })}
       </StyledSidebarNavItems>
 
@@ -144,6 +124,51 @@ const SidebarNav = ({
         </StyledSidebarNavSeparatorContainer>
       )}
     </StyledSidebarNavContainer>
+  )
+}
+
+const renderNavItem = (
+  page: IAppPage,
+  pageIndex: number,
+  endpoints: StreamlitEndpoints,
+  pageLinkBaseUrl: string,
+  currentPageScriptHash: string,
+  onPageChange: (pageName: string) => void,
+  collapseSidebar: () => void
+) => {
+  const pageUrl = endpoints.buildAppPageURL(
+    pageLinkBaseUrl,
+    page,
+    pageIndex
+  )
+
+  const pageName = page.pageName as string
+  const tooltipContent = pageName.replace(/_/g, " ")
+  const isActive = page.pageScriptHash === currentPageScriptHash
+
+  return (
+    <li>
+      <StyledSidebarNavLinkContainer>
+        <StyledSidebarNavLink
+          isActive={isActive}
+          href={pageUrl}
+          onClick={e => {
+            e.preventDefault()
+            onPageChange(page.pageScriptHash as string)
+            if (reactDeviceDetect.isMobile) {
+              collapseSidebar()
+            }
+          }}
+        >
+          {page.icon && page.icon.length && (
+            <EmojiIcon size="lg">{page.icon}</EmojiIcon>
+          )}
+          <StyledSidebarLinkText isActive={isActive}>
+            {tooltipContent}
+          </StyledSidebarLinkText>
+        </StyledSidebarNavLink>
+      </StyledSidebarNavLinkContainer>
+    </li>
   )
 }
 
