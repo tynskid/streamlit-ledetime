@@ -101,7 +101,8 @@ python-init-test-only: lib/test-requirements.txt
 python-init:
 	pip_args=("install" "--editable" "lib[snowflake]");\
 	if [ "${USE_CONSTRAINT_FILE}" = "false" ] ; then\
-		pip_args+=(--constraint "${CONSTRAINTS_URL}"); \
+		d=p\
+		#pip_args+=(--constraint "${CONSTRAINTS_URL}"); \
 	fi;\
 	if [ "${INSTALL_DEV_REQS}" = "true" ] ; then\
 		pip_args+=("--requirement" "lib/dev-requirements.txt"); \
